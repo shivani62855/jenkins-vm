@@ -26,7 +26,7 @@ chown -R jenkins:jenkins /var/lib/jenkins
 systemctl restart jenkins
 
 ### Updating Jenkins URL with VM's IP address
-ip=$(ip -f inet addr show eth0 | grep -Po 'inet \K[\d.]+')
+ip=$(ip -f inet addr show eth1 | grep -Po 'inet \K[\d.]+')
 sed -i "s/VM_IP/$ip/g" /var/lib/jenkins/jenkins.model.JenkinsLocationConfiguration.xml
 
 ### Updating Jenkins version
