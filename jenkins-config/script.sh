@@ -16,15 +16,6 @@ apt-get update
 apt-get install -y jenkins
 systemctl restart jenkins
 
-### Updating Jenkins URL with VM's IP address
-ip=$(ip -f inet addr show eth0 | grep -Po 'inet \K[\d.]+')
-sed -i "s/VM_IP/$ip/g" ./jenkins-config/jenkins.model.JenkinsLocationConfiguration.xml
-
-### Updating Jenkins version
-version=$(jenkins --version)
-sed -i "s/VERSION/$version/g" ./jenkins-config/jenkins.install.UpgradeWizard.state
-sed -i "s/VERSION/$version/g" ./jenkins-config/jenkins.install.InstallUtil.lastExecVersion
-
 ### Removing exiting user config files
 rm -rf /var/lib/jenkins/users
 
@@ -33,6 +24,15 @@ cp -r ./jenkins-config/* /var/lib/jenkins/
 
 chown -R jenkins:jenkins /var/lib/jenkins
 systemctl restart jenkins
+
+### Updating Jenkins URL with VM's IP address
+ip=$(ip -f inet addr show eth0 | grep -Po 'inet \K[\d.]+')
+sed -i "s/VM_IP/$ip/g" /var/lib/jenkins/jenkins.model.JenkinsLocationConfiguration.xml
+
+### Updating Jenkins version
+version=$(jenkins --version)
+sed -i "s/JENKINS_VERSION/$version/g" /var/lib/jenkins/jenkins.install.UpgradeWizard.state
+sed -i "s/JENKINS_VERSION/$version/g" /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
 
 ### Downloading Jenkins cli file
 if [ ! -f jenkins-cli.jar ]; then
