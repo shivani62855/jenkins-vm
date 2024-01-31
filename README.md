@@ -6,6 +6,8 @@ This repository supports 3 Hypervisors (VirtualBox, VMware Workstation and VMwar
 
 So, depending on which Hypervisor you use, just go the folder and execute `vagrant up` command to create the local Jenkins platform. If you don't have Vagrant installed, download and install it from [here](https://developer.hashicorp.com/vagrant/install)
 
+This Jenkins comes will few plugins. You can install more plugins by adding the plugins id in `jenkins-config/script.sh` file at line#43
+
 
 **Note**: In the `Vagrantfile`, you will find a fixed IP is allocated to the VM using a config as follows:
 
