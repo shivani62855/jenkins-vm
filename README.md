@@ -35,8 +35,8 @@ For example, if you are using **VMware Workstation** in a **Windows** laptop, yo
 - Download ngrok from here depending on your VM OS architecture https://ngrok.com/download.
 ```
 apt-get update && apt-get install -y install wget
-wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz
-sudo tar xvzf ngrok-v3-stable-linux-arm64.tgz -C /usr/local/bin
+wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+sudo tar xvzf ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
 ```
 
 - Sign up to Ngrok https://dashboard.ngrok.com/signup if you don't have account and get authentication token
